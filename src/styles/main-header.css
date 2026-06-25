@@ -1,0 +1,17 @@
+.main-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 20px;
+    background-color: var(--background-logo);
+    width: fit-content;
+    border-end-end-radius: 12px;
+    img {
+        width: 20px;
+        height: 20px;
+    }
+    h1 {
+        font: var(--logo);
+        color: var(--content-brand);
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Pet</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <header class="main-header">
+            <img src="assets/icon-logo.svg" alt="ícone do mundo pet">
+            <h1>MUNDO PET</h1>
+        </header>
+
+        <main class="schedule">
+            <header class="schedule-header">
+                <div class="schedule-title-group">
+                    <h2>Sua agenda</h2>
+                    <p>
+                        Aqui você pode ver todos os clientes e serviços agendados para hoje.
+                    </p>
+                </div>
+                <div class="schedule-filter">
+                    <label for="schedule-date" hidden></label>
+                    <input type="date" name="schedule-date" id="schedule-date" class="input-date" value="2026-06-25">
+                </div>
+            </header>
+
+            <section class="schedule-period">
+                <header>
+                    <img src="assets/morning.svg" alt="">
+                    <h3>Manhã</h3>
+                    <p>09h-12h</p>
+                </header>
+                <ul class="schedule-list morgning">
+                    <li class="schedule-item">
+                        <div>
+                            <time>09:00</time>
+                            <p>
+                                <strong>Lassie</strong>
+                                <span>/ Marcos Leonan</span>
+                            </p>
+                        </div>
+                        <p>Vacinalção</p>
+                        <button>Delete</button>
+                    </li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

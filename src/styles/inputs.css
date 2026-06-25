@@ -1,0 +1,29 @@
+.input-date {
+    background-color: transparent;
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    padding: 12px 0px 12px 40px;
+    font: var(--label-large);
+    color: var(--content-secondary);
+    outline: none;
+
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-image: url(../assets/calendar.svg);
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &::-webkit-calendar-picker-indicator {
+        opacity: 1;
+        position: absolute;
+        right: 5px;
+        background-image: url(../assets/arrow-down.svg);
+        cursor: pointer;
+    }
+}
