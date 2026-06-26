@@ -348,7 +348,7 @@ select.input option {
 /*!***********************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/btn-new-schedule.css ***!
   \***********************************************************************************/
-.btn-new-schedule {
+.btn-new-schedule-container {
     position: fixed;
     left: 0;
     right: 0;
@@ -365,7 +365,7 @@ select.input option {
 }
 
 @media (width >= 1280px) {
-    .btn-new-schedule {
+    .btn-new-schedule-container {
         justify-content: end;
         padding-bottom: 35px;
         padding-right: 35px;
