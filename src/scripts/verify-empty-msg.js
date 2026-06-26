@@ -1,5 +1,5 @@
 function verifyEmptyMsg() {
-    const scheduleListsDOM = document.querySelectorAll('.schedule-list')
+    const scheduleListsDOM = document.querySelectorAll('.schedule-list');
     scheduleListsDOM.forEach((list) => {
         const emptyMsg = list.previousElementSibling;
         if (list.children.length == 0) {

@@ -12,13 +12,16 @@
 <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
 <body>
 
-    
+    <!-- =============== ÍCONE DA PÁGINA =============== -->
     <header class="main-header">
         <img src="5d15b8529054c7b5577b.svg" alt="ícone do mundo pet">
         <h1>MUNDO PET</h1>
     </header>
 
+    <!-- =================== AGENDA =================== -->
     <main class="schedule">
+
+        <!-- =============== CABEÇALHO =============== -->
         <header class="schedule-header">
             <div class="schedule-title-group">
                 <h2>Sua agenda</h2>
@@ -32,6 +35,7 @@
             </div>
         </header>
 
+        <!-- =============== AGENDAMENTOS DA MANHÃ =============== -->
         <section class="schedule-period">
             <header>
                 <img src="dff21791f6edffbf5fa8.svg" alt="">
@@ -69,6 +73,7 @@
             </ul>
         </section>
 
+        <!-- =============== AGENDAMENTOS DA TARDE =============== -->
         <section class="schedule-period">
             <header>
                 <img src="f71406ef1b1a0127e90b.png" alt="">
@@ -132,6 +137,7 @@
             </ul>
         </section>
 
+        <!-- =============== AGENDAMENTOS DA NOITE =============== -->
         <section class="schedule-period">
             <header>
                 <img src="f9060e0eabffb10cd9f4.svg" alt="">
@@ -139,22 +145,24 @@
                 <p>19h-21h</p>
             </header>
             <p class="empty-msg">Não há agendamentos</p>
-            <ul class="schedule-list night" hidden>
-                <li>item</li>
-            </ul>
+            <ul class="schedule-list night"></ul>
         </section>
-
     </main>
     
+    <!-- =============== BOTÃO DE NOVO AGENDAMENTO =============== -->
     <div class="btn-new-schedule-container">
         <button class="button open-schedule-form">NOVO AGENDAMENTO</button>
     </div>
     
+    <!-- =============== FUNDO TRANSPARENTE =============== -->
     <div class="background" hidden>
     </div>
     
+    <!-- =============== FORMULÁRIO DE AGENDAMENTO =============== -->
     <div class="schedule-form-container" hidden>
         <div class="schedule-form-background">
+
+            <!-- =============== CABEÇALHO =============== -->
             <header>
                 <h2>
                     Agende um atendimento
@@ -166,35 +174,45 @@
             </header>
 
             <form class="schedule-form">
+                <!-- =============== NOME DO TUTOR =============== -->
                 <div class="input-item">
                     <label for="name-client">Nome do tutor</label>
                     <div class="input-icon name-client">
                         <input type="text" name="name-client" id="name-client" placeholder="Marcos Leonan" class="input name-client">
                     </div>
                 </div>
+
+                <!-- =============== NOME DO PET =============== -->
                 <div class="input-item">
                     <label for="name-pet">Nome do pet</label>
                     <div class="input-icon name-pet">
                         <input type="text" name="name-pet" id="name-pet" class="input" placeholder="Lessie">
                     </div>
                 </div>
+
+                <!-- =============== TELEFONE =============== -->
                 <div class="input-item">
                     <label for="telephone">Telefone</label>
                     <div class="input-icon telephone">
                         <input type="text" name="telephone" id="telephone" class="input" placeholder="(86) 99538-6030">
                     </div>
                 </div>
+                <!-- =============== AGENDAMENTOS DA MANHÃ =============== -->
                 <div class="input-item">
                     <label for="service-description">Descrição do serviço</label>
                     <div>
                         <textarea name="service-description" id="service-description" class="input" placeholder="Banho e tosa"></textarea>
                     </div>
                 </div>
+
                 <div class="group-input">
+                    <!-- =============== DATA =============== -->
                     <div class="input-item">
                         <label for="date">Data</label>
                         <input type="date" name="date" id="date" class="input date">
                     </div>
+
+                    <!-- =============== HORÁRIO =============== -->
                     <div class="input-item">
                         <label for="hour">Horário</label>
                         <div class="input-icon hour">

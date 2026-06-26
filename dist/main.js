@@ -20,24 +20,34 @@ eval("{__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-ext
 
 /***/ },
 
-/***/ "./src/modules/main.js"
+/***/ "./src/scripts/main.js"
 /*!*****************************!*\
-  !*** ./src/modules/main.js ***!
+  !*** ./src/scripts/main.js ***!
   \*****************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/index.css */ \"./src/styles/index.css\");\n/* harmony import */ var _switch_screen_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./switch-screen.js */ \"./src/modules/switch-screen.js\");\n/* harmony import */ var _switch_screen_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_switch_screen_js__WEBPACK_IMPORTED_MODULE_1__);\n// CSS\r\n\r\n\r\n// JavaScript\r\n\n\n//# sourceURL=webpack:///./src/modules/main.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/index.css */ \"./src/styles/index.css\");\n/* harmony import */ var _switch_screen_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./switch-screen.js */ \"./src/scripts/switch-screen.js\");\n/* harmony import */ var _switch_screen_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_switch_screen_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _verify_empty_msg_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./verify-empty-msg.js */ \"./src/scripts/verify-empty-msg.js\");\n/* harmony import */ var _verify_empty_msg_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_verify_empty_msg_js__WEBPACK_IMPORTED_MODULE_2__);\n// CSS\r\n\r\n\r\n// JavaScript\r\n\r\n\n\n//# sourceURL=webpack:///./src/scripts/main.js?\n}");
 
 /***/ },
 
-/***/ "./src/modules/switch-screen.js"
+/***/ "./src/scripts/switch-screen.js"
 /*!**************************************!*\
-  !*** ./src/modules/switch-screen.js ***!
+  !*** ./src/scripts/switch-screen.js ***!
   \**************************************/
 () {
 
-eval("{const scheduleDOM = document.querySelector('.schedule');\r\nconst scheduleFormContainer = document.querySelector('.schedule-form-container');\r\nconst backgroundFormContainer = document.querySelector('.background');\r\nconst btnOpenScheduleForm = document.querySelector('.open-schedule-form');\r\nconst btnCloseScheduleForm = document.querySelector('.close-schedule-form');\r\n\r\nbtnCloseScheduleForm.onclick = () => {\r\n    openScheduleForm(false);\r\n}\r\n\r\nbtnOpenScheduleForm.onclick = () => {\r\n    openScheduleForm(true);\r\n}\r\n\r\nfunction openScheduleForm(bool) {\r\n    if (bool) {\r\n        scheduleDOM.classList.add('blur');\r\n    } else {\r\n        scheduleDOM.classList.remove('blur');\r\n    }\r\n    scheduleFormContainer.hidden = !bool;\r\n    backgroundFormContainer.hidden = !bool;\r\n    btnOpenScheduleForm.hidden = bool;\r\n    window.scrollTo({\r\n        top: 0,\r\n        behavior: 'smooth'\r\n    });\r\n}\n\n//# sourceURL=webpack:///./src/modules/switch-screen.js?\n}");
+eval("{const scheduleDOM = document.querySelector('.schedule');\r\nconst scheduleFormContainer = document.querySelector('.schedule-form-container');\r\nconst backgroundFormContainer = document.querySelector('.background');\r\nconst btnOpenScheduleForm = document.querySelector('.open-schedule-form');\r\nconst btnCloseScheduleForm = document.querySelector('.close-schedule-form');\r\n\r\nbtnCloseScheduleForm.onclick = () => {\r\n    openScheduleForm(false);\r\n}\r\n\r\nbtnOpenScheduleForm.onclick = () => {\r\n    openScheduleForm(true);\r\n}\r\n\r\nfunction openScheduleForm(bool) {\r\n    if (bool) {\r\n        scheduleDOM.classList.add('blur');\r\n    } else {\r\n        scheduleDOM.classList.remove('blur');\r\n    }\r\n    scheduleFormContainer.hidden = !bool;\r\n    backgroundFormContainer.hidden = !bool;\r\n    btnOpenScheduleForm.hidden = bool;\r\n    window.scrollTo({\r\n        top: 0,\r\n        behavior: 'smooth'\r\n    });\r\n}\n\n//# sourceURL=webpack:///./src/scripts/switch-screen.js?\n}");
+
+/***/ },
+
+/***/ "./src/scripts/verify-empty-msg.js"
+/*!*****************************************!*\
+  !*** ./src/scripts/verify-empty-msg.js ***!
+  \*****************************************/
+() {
+
+eval("{function verifyEmptyMsg() {\r\n    const scheduleListsDOM = document.querySelectorAll('.schedule-list');\r\n    scheduleListsDOM.forEach((list) => {\r\n        const emptyMsg = list.previousElementSibling;\r\n        if (list.children.length == 0) {\r\n            list.hidden = true;\r\n            emptyMsg.hidden = false;\r\n        } else {\r\n            list.hidden = false;\r\n            emptyMsg.hidden = true;\r\n        };\r\n    });\r\n};\r\n\r\nverifyEmptyMsg();\n\n//# sourceURL=webpack:///./src/scripts/verify-empty-msg.js?\n}");
 
 /***/ }
 
@@ -134,7 +144,7 @@ eval("{const scheduleDOM = document.querySelector('.schedule');\r\nconst schedul
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	let __webpack_exports__ = __webpack_require__("./src/modules/main.js");
+/******/ 	let __webpack_exports__ = __webpack_require__("./src/scripts/main.js");
 /******/ 	
 /******/ })()
 ;
