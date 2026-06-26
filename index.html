@@ -18,7 +18,7 @@
         <h1>MUNDO PET</h1>
     </header>
 
-    <main class="schedule blur">
+    <main class="schedule">
         <header class="schedule-header">
             <div class="schedule-title-group">
                 <h2>Sua agenda</h2>
@@ -40,7 +40,7 @@
             </header>
             <p class="empty-msg" hidden>Não há agendamentos</p>
             <ul class="schedule-list morgning">
-                <!-- <li class="schedule-item">
+                <li class="schedule-item">
                     <article>
                         <div>
                             <time>09:00</time>
@@ -65,7 +65,7 @@
                         <p>Vacinação</p>
                         <button></button>
                     </article>
-                </li> -->
+                </li>
             </ul>
         </section>
 
@@ -77,19 +77,6 @@
             </header>
             <p class="empty-msg" hidden>Não há agendamentos</p>
             <ul class="schedule-list afternoon">
-                <!-- <li class="schedule-item">
-                    <article>
-                        <div>
-                            <time>09:00</time>
-                            <p>
-                                <strong>Lassie</strong>
-                                <span>/ Marcos Leonan</span>
-                            </p>
-                        </div>
-                        <p>Vacinação</p>
-                        <button></button>
-                    </article>
-                </li>
                 <li class="schedule-item">
                     <article>
                         <div>
@@ -128,7 +115,20 @@
                         <p>Vacinação</p>
                         <button></button>
                     </article>
-                </li> -->
+                </li>
+                <li class="schedule-item">
+                    <article>
+                        <div>
+                            <time>09:00</time>
+                            <p>
+                                <strong>Lassie</strong>
+                                <span>/ Marcos Leonan</span>
+                            </p>
+                        </div>
+                        <p>Vacinação</p>
+                        <button></button>
+                    </article>
+                </li>
             </ul>
         </section>
 
@@ -146,14 +146,14 @@
 
     </main>
     
-    <div class="btn-new-schedule">
-        <button class="button" hidden>NOVO AGENDAMENTO</button>
+    <div class="btn-new-schedule-container">
+        <button class="button open-schedule-form">NOVO AGENDAMENTO</button>
     </div>
     
-    <div class="background">
+    <div class="background" hidden>
     </div>
     
-    <div class="schedule-form-container">
+    <div class="schedule-form-container" hidden>
         <div class="schedule-form-background">
             <header>
                 <h2>
@@ -162,7 +162,7 @@
                 <p>
                     Preencha os dados do cliente para realizar o agendamento
                 </p>
-                <button></button>
+                <button class="close-schedule-form"></button>
             </header>
 
             <form class="schedule-form">
