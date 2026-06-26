@@ -125,6 +125,11 @@ li {
                 font: var(--paragraph-medium);
             }
         }
+
+        .schedule-filter {
+            align-self: flex-end;
+            width: fit-content;
+        }
     }
 
     .schedule-period {
@@ -213,6 +218,10 @@ li {
         .schedule-header {
             flex-direction: row;
             align-items: center;
+
+            .schedule-filter {
+                align-self: center;
+            }
         }
         .schedule-period .schedule-list .schedule-item article {
             display: flex;
@@ -297,20 +306,12 @@ textarea.input {
 }
 
 select.input {
-    position: relative;
     display: flex;
+    position: relative;
     appearance: base-select;
-}
-select.input option {
-    background-color: transparent;
-    color: black;
-    padding: 2px;
-    border-radius: 4px;
-    &:hover {
-        background-color: var(--background-primary);
-    }
-    &:disabled {
-        color: var(--content-secondary);
+    optgroup, option {
+        background-color: var(--background-tertiary);
+        color: var(--content-primary);
     }
 }
 
