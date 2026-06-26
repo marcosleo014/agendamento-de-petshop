@@ -68,21 +68,13 @@ textarea.input {
 }
 
 select.input {
-    position: relative;
     display: flex;
+    position: relative;
     appearance: base-select;
 }
 select.input option {
-    background-color: transparent;
-    color: black;
-    padding: 2px;
-    border-radius: 4px;
-    &:hover {
-        background-color: var(--background-primary);
-    }
-    &:disabled {
-        color: var(--content-secondary);
-    }
+    background-color: var(--background-tertiary);
+    color: var(--content-primary);
 }
 
 

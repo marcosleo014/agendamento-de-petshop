@@ -22,6 +22,11 @@
                 font: var(--paragraph-medium);
             }
         }
+
+        .schedule-filter {
+            align-self: flex-end;
+            width: fit-content;
+        }
     }
 
     .schedule-period {
@@ -110,6 +115,10 @@
         .schedule-header {
             flex-direction: row;
             align-items: center;
+
+            .schedule-filter {
+                align-self: center;
+            }
         }
         .schedule-period .schedule-list .schedule-item article {
             display: flex;
