@@ -18,7 +18,7 @@
     --background-tertiary: #23242C;
     --background-logo: #2E2C30;
     --background-brand: #9282FA;
-    --background-highlights: #BDB4FA;
+    --background-highlight: #a89bfc;
 
     --border-primary: #3E3C41;
     --border-secondary: #86818C;
@@ -227,35 +227,93 @@ li {
 /*!*************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/inputs.css ***!
   \*************************************************************************/
-.input-date {
+.input {
+    display: inline-block;
+    padding: 12px 12px 12px 40px;
+    width: 100%;
     background-color: transparent;
     border: 1px solid var(--border-primary);
     border-radius: 8px;
-    padding: 12px 0px 12px 40px;
     font: var(--label-large);
-    color: var(--content-secondary);
+    font-weight: 400;
+    color: var(--content-primary);
     outline: none;
-
     position: relative;
     &::before {
         content: '';
         display: block;
         position: absolute;
+        z-index: 1;
         width: 20px;
         height: 20px;
-        background-image: url(06e5d0aa89a84deb0bf1.svg);
         left: 12px;
         top: 50%;
         transform: translateY(-50%);
     }
-    &::-webkit-calendar-picker-indicator {
-        opacity: 1;
-        position: absolute;
-        right: 5px;
-        background-image: url(e1d5ba006ded679673fb.svg);
-        cursor: pointer;
+    &:hover {
+        border-color: var(--border-secondary);
+    }
+    &:focus {
+        border-color: var(--border-brand)
     }
 }
+.input-icon {
+    background-repeat: no-repeat;
+    background-position: 12px 14px;
+    background-size: 20px;
+}
+.input-icon.name-client {
+    background-image: url(06e5d0aa89a84deb0bf1.svg);
+}
+.input-icon.name-pet {
+    background-image: url(9bf6f061dedc0a826152.svg);
+}
+.input-icon.telephone {
+    background-image: url(bac5334ca3beae1f2e2f.svg);
+}
+.input-icon.hour {
+    position: relative;
+    background-image: url(ed3a84a8294e21b44b26.svg);
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        right: 5px;
+        top: 50%;
+        z-index: -1;
+        transform: translateY(-50%);
+        background-image: url(e1d5ba006ded679673fb.svg);
+    }
+}
+
+/* especificação da classe para garantir a especificadade na regra */
+textarea.input {
+    padding: 12px;
+    resize: none;
+    height: 80px;
+    overflow-y: hidden;
+}
+
+select.input {
+    position: relative;
+    display: flex;
+    appearance: base-select;
+}
+select.input option {
+    background-color: transparent;
+    color: black;
+    padding: 2px;
+    border-radius: 4px;
+    &:hover {
+        background-color: var(--background-primary);
+    }
+    &:disabled {
+        color: var(--content-secondary);
+    }
+}
+
 
 .button {
     border-radius: 8px;
@@ -265,7 +323,28 @@ li {
     background-color: var(--background-brand);
     font: var(--label-large);
     font-weight: 700;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--background-highlight);
+        box-shadow: 0 0 10px var(--background-brand);    
+    }
 }
+
+.input.date {
+    &::before {
+        background-image: url(06e5d0aa89a84deb0bf1.svg);
+    }
+    &::-webkit-calendar-picker-indicator {
+        opacity: 1;
+        position: absolute;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        background-image: url(e1d5ba006ded679673fb.svg);
+        cursor: pointer;
+    }
+}
+
 /*!***********************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/btn-new-schedule.css ***!
   \***********************************************************************************/
@@ -290,6 +369,122 @@ li {
         justify-content: end;
         padding-bottom: 35px;
         padding-right: 35px;
+    }
+}
+/*!********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles/schedule-form.css ***!
+  \********************************************************************************/
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* border: 2px solid red; */
+}
+
+.blur {
+    filter: blur(4px);
+}
+
+.schedule-form-container {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-block: 76px 40px;
+}
+
+.schedule-form-background {
+    position: relative;
+    max-width: 320px;
+    margin-inline: auto;
+    padding: 40px 20px 20px;
+    background-color: var(--background-tertiary);
+    border-radius: 12px;
+    box-shadow: 0 0 10px var(--background-brand);
+
+    header {
+        margin-bottom: 28px;
+        h2 {
+            font: var(--title);
+            color: var(--content-primary);
+            margin-bottom: 4px;
+        }
+        p {
+            font: var(--paragraph-medium);
+        }
+
+        button {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+
+            width: 36px;
+            height: 36px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-image: url(5deb42f42426aa442d45.svg);
+            &:hover {
+                background-image: url(2fbd4607654c8acc8bcd.svg);
+            }
+        }
+    }
+
+    .schedule-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .input-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            label {
+                font: var(--label-medium);
+                color: var(--content-primary);
+            }
+        }
+
+        .group-input {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input.button {
+            align-self: flex-end;
+            margin-top: 12px;
+            width: fit-content;
+        }
+    }
+}
+
+@media (width >= 1280px) {
+    .schedule-form-container {
+        padding-block: 25px;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .schedule-form-background {
+        max-width: 500px;
+        padding: 40px;
+
+        header h2 {
+            font-size: 34px;
+        }
+
+        .schedule-form .group-input {
+            flex-direction: row;
+            width: 100%;
+            &>* {
+                flex: 1;
+            }
+        }
     }
 }
 /*!************************************************************************!*\

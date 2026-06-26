@@ -1,4 +1,4 @@
-.btn-new-schedule {
+.btn-new-schedule-container {
     position: fixed;
     left: 0;
     right: 0;
@@ -15,7 +15,7 @@
 }
 
 @media (width >= 1280px) {
-    .btn-new-schedule {
+    .btn-new-schedule-container {
         justify-content: end;
         padding-bottom: 35px;
         padding-right: 35px;
