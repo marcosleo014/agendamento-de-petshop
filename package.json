@@ -1,10 +1,14 @@
 {
   "scripts": {
     "build": "webpack",
-    "preview": "webpack server"
+    "preview": "webpack server",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "css-loader": "^7.1.4",
+    "gh-pages": "^6.3.0",
+    "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.7",
     "mini-css-extract-plugin": "^2.10.2",
     "webpack": "^5.108.0",

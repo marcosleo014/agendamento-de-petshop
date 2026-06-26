@@ -1,28 +1,116 @@
-.input-date {
+.input {
+    display: inline-block;
+    padding: 12px 12px 12px 40px;
+    width: 100%;
     background-color: transparent;
     border: 1px solid var(--border-primary);
     border-radius: 8px;
-    padding: 12px 0px 12px 40px;
     font: var(--label-large);
-    color: var(--content-secondary);
+    font-weight: 400;
+    color: var(--content-primary);
     outline: none;
-
     position: relative;
     &::before {
         content: '';
         display: block;
         position: absolute;
+        z-index: 1;
         width: 20px;
         height: 20px;
-        background-image: url(../assets/calendar.svg);
         left: 12px;
         top: 50%;
         transform: translateY(-50%);
+    }
+    &:hover {
+        border-color: var(--border-secondary);
+    }
+    &:focus {
+        border-color: var(--border-brand)
+    }
+}
+.input-icon {
+    background-repeat: no-repeat;
+    background-position: 12px 14px;
+    background-size: 20px;
+}
+.input-icon.name-client {
+    background-image: url(../assets/calendar.svg);
+}
+.input-icon.name-pet {
+    background-image: url(../assets/pet-paw.svg);
+}
+.input-icon.telephone {
+    background-image: url(../assets/phone.svg);
+}
+.input-icon.hour {
+    position: relative;
+    background-image: url(../assets/clock.svg);
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 20px;
+        height: 20px;
+        right: 5px;
+        top: 50%;
+        z-index: -1;
+        transform: translateY(-50%);
+        background-image: url(../assets/arrow-down.svg);
+    }
+}
+
+/* especificação da classe para garantir a especificadade na regra */
+textarea.input {
+    padding: 12px;
+    resize: none;
+    height: 80px;
+    overflow-y: hidden;
+}
+
+select.input {
+    position: relative;
+    display: flex;
+    appearance: base-select;
+}
+select.input option {
+    background-color: transparent;
+    color: black;
+    padding: 2px;
+    border-radius: 4px;
+    &:hover {
+        background-color: var(--background-primary);
+    }
+    &:disabled {
+        color: var(--content-secondary);
+    }
+}
+
+
+.button {
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    background-color: var(--background-brand);
+    font: var(--label-large);
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+        background-color: var(--background-highlight);
+        box-shadow: 0 0 10px var(--background-brand);    
+    }
+}
+
+.input.date {
+    &::before {
+        background-image: url(../assets/calendar.svg);
     }
     &::-webkit-calendar-picker-indicator {
         opacity: 1;
         position: absolute;
         right: 5px;
+        width: 20px;
+        height: 20px;
         background-image: url(../assets/arrow-down.svg);
         cursor: pointer;
     }

@@ -23,6 +23,16 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     'css-loader'
                 ]
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    'html-loader'
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg)$/,
+                type: 'asset/resource'
             }
         ]
     },

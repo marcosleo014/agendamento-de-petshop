@@ -1,12 +1,15 @@
 .schedule {
+    max-width: 390px;
+    margin-inline: auto;
+
     display: flex;
     flex-direction: column;
     gap: 32px;
-    padding: 80px;
+    padding: 20px 20px 120px;
 
     .schedule-header {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 12px;
 
         .schedule-title-group {
@@ -41,25 +44,79 @@
                 font-weight: 700;
             }
         }
+        .empty-msg {
+            font: var(--label-large);
+            text-align: center;
+            padding-block: 30px;
+        }
         .schedule-list {
             padding: 20px;
             display: flex;
             flex-direction: column;
 
-            .schedule-item {
+            .schedule-item article {
+                display: grid;
+                grid-template:
+                'info        btn'
+                'description btn'
+                / 1fr        30px;
                 padding: 12px;
                 &>div {
+                    grid-area: info;
                     display: flex;
                     align-items: center;
-                    gap: 16px;
-                    time {
+                    gap: 12px;
+                    time, p strong {
                         font: var(--label-medium);
                         font-weight: 700;
-                    }
-                    p strong{
-                        font: ;
+                        color: var(--content-primary);
                     }
                 }
+                p {
+                    grid-area: description;
+                    font: var(--paragraph-medium);
+                }
+                button {
+                    grid-area: btn;
+                    justify-self: center;
+                    align-self: center;
+
+                    display: block;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    background-image: url(../assets/cancel.svg);
+                    height: 24px;
+                    width: 24px;
+                    background-size: contain;
+                    cursor: pointer;
+                    &:hover {
+                        background-image: url(../assets/cancel-hover.svg);
+                    }
+                }
+            }
+            li + li {
+                border-top: 1px solid var(--border-divisor);
+            }
+        }
+    }
+}
+
+@media (width >= 1280px) {
+    .schedule {
+        max-width: 950px;
+        padding: 80px;
+
+        .schedule-header {
+            flex-direction: row;
+            align-items: center;
+        }
+        .schedule-period .schedule-list .schedule-item article {
+            display: flex;
+            &>p {
+                text-align: end;
+                flex: 1;
+                padding-right: 100px;
             }
         }
     }

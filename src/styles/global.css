@@ -15,7 +15,7 @@
     --background-tertiary: #23242C;
     --background-logo: #2E2C30;
     --background-brand: #9282FA;
-    --background-highlights: #BDB4FA;
+    --background-highlight: #a89bfc;
 
     --border-primary: #3E3C41;
     --border-secondary: #86818C;
@@ -52,4 +52,21 @@ body {
 
 li {
     list-style: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (width >= 1280px) {
+    :root {
+        --logo: 700 20px/28px var(--ff-famijen-grotesk);
+        --title: 700 40px/48px var(--ff-inter-tight);
+        --paragraph-medium: 500 16px/28px var(--ff-inter);
+        --paragraph-small: 500 14px/22px var(--ff-inter);
+        --label-large: 500 18px/28px var(--ff-inter);
+        --label-medium: 700 16px/24px var(--ff-inter);
+        --label-small: 700 14px/20px var(--ff-inter);
+        --link: 500 14px/20px var(--ff-inter);
+    }
 }

@@ -1,0 +1,113 @@
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* border: 2px solid red; */
+}
+
+.blur {
+    filter: blur(4px);
+}
+
+.schedule-form-container {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-block: 76px 40px;
+}
+
+.schedule-form-background {
+    position: relative;
+    max-width: 320px;
+    margin-inline: auto;
+    padding: 40px 20px 20px;
+    background-color: var(--background-tertiary);
+    border-radius: 12px;
+    box-shadow: 0 0 10px var(--background-brand);
+
+    header {
+        margin-bottom: 28px;
+        h2 {
+            font: var(--title);
+            color: var(--content-primary);
+            margin-bottom: 4px;
+        }
+        p {
+            font: var(--paragraph-medium);
+        }
+
+        button {
+            position: absolute;
+            right: 8px;
+            top: 8px;
+
+            width: 36px;
+            height: 36px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-image: url(../assets/close.svg);
+            &:hover {
+                background-image: url(../assets/close-hover.svg);
+            }
+        }
+    }
+
+    .schedule-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .input-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            label {
+                font: var(--label-medium);
+                color: var(--content-primary);
+            }
+        }
+
+        .group-input {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input.button {
+            align-self: flex-end;
+            margin-top: 12px;
+            width: fit-content;
+        }
+    }
+}
+
+@media (width >= 1280px) {
+    .schedule-form-container {
+        padding-block: 25px;
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .schedule-form-background {
+        max-width: 500px;
+        padding: 40px;
+
+        header h2 {
+            font-size: 34px;
+        }
+
+        .schedule-form .group-input {
+            flex-direction: row;
+            width: 100%;
+            &>* {
+                flex: 1;
+            }
+        }
+    }
+}
