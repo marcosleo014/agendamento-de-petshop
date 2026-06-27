@@ -162,7 +162,7 @@ li {
             display: flex;
             flex-direction: column;
 
-            .schedule-item article {
+            li article {
                 display: grid;
                 grid-template:
                 'info        btn'
@@ -223,7 +223,7 @@ li {
                 align-self: center;
             }
         }
-        .schedule-period .schedule-list .schedule-item article {
+        .schedule-period .schedule-list li article {
             display: flex;
             &>p {
                 text-align: end;

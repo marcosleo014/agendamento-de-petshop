@@ -30,16 +30,6 @@ eval("{__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-ext
 
 /***/ },
 
-/***/ "./src/scripts/form/submit.js"
-/*!************************************!*\
-  !*** ./src/scripts/form/submit.js ***!
-  \************************************/
-() {
-
-eval("{const form = document.querySelector('.schedule-form');\r\n\r\nform.onsubmit = (event) => {\r\n    event.preventDefault();\r\n    console.log('agendamento criado!');\r\n}\n\n//# sourceURL=webpack:///./src/scripts/form/submit.js?\n}");
-
-/***/ },
-
 /***/ "./src/scripts/inputs-value-default.js"
 /*!*********************************************!*\
   !*** ./src/scripts/inputs-value-default.js ***!
@@ -58,7 +48,18 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var day
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/index.css */ \"./src/styles/index.css\");\n/* harmony import */ var _switch_screen_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./switch-screen.js */ \"./src/scripts/switch-screen.js\");\n/* harmony import */ var _switch_screen_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_switch_screen_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _verify_empty_msg_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./verify-empty-msg.js */ \"./src/scripts/verify-empty-msg.js\");\n/* harmony import */ var _verify_empty_msg_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_verify_empty_msg_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _inputs_value_default_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inputs-value-default.js */ \"./src/scripts/inputs-value-default.js\");\n/* harmony import */ var _form_submit_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./form/submit.js */ \"./src/scripts/form/submit.js\");\n/* harmony import */ var _form_submit_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_form_submit_js__WEBPACK_IMPORTED_MODULE_4__);\n// CSS\r\n\r\n\r\n// JavaScript\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/scripts/main.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/index.css */ \"./src/styles/index.css\");\n/* harmony import */ var _switch_screen_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./switch-screen.js */ \"./src/scripts/switch-screen.js\");\n/* harmony import */ var _switch_screen_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_switch_screen_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _verify_empty_msg_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./verify-empty-msg.js */ \"./src/scripts/verify-empty-msg.js\");\n/* harmony import */ var _inputs_value_default_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inputs-value-default.js */ \"./src/scripts/inputs-value-default.js\");\n/* harmony import */ var _submit_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./submit.js */ \"./src/scripts/submit.js\");\n// CSS\r\n\r\n\r\n// JavaScript\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/scripts/main.js?\n}");
+
+/***/ },
+
+/***/ "./src/scripts/submit.js"
+/*!*******************************!*\
+  !*** ./src/scripts/submit.js ***!
+  \*******************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _verify_empty_msg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./verify-empty-msg */ \"./src/scripts/verify-empty-msg.js\");\n\r\n\r\nconst form = document.querySelector('.schedule-form');\r\nconst listScheduleMorning = document.querySelector('.morning')\r\nconst listScheduleAfternoon = document.querySelector('.afternoon')\r\nconst listScheduleNight = document.querySelector('.night')\r\n\r\nform.onsubmit = (event) => {\r\n    event.preventDefault();\r\n    \r\n    // obtendo os elemento do DOM\r\n    const client = document.querySelector('#name-client');\r\n    const pet = document.querySelector('#name-pet');\r\n    const phone = document.querySelector('#telephone');\r\n    const description = document.querySelector('#service-description');\r\n    const date = document.querySelector('#date');\r\n    const hour = document.querySelector('#hour');\r\n\r\n    // Tratando os valores dos inputs\r\n    if (!client.value.trim()) {\r\n        client.value = '';\r\n        return alert('Identifique o tutor do pet');\r\n    }\r\n    if (!pet.value.trim()) {\r\n        pet.value = '';\r\n        return alert('Insira o nome do pet');\r\n    }\r\n    if (phone.value.length < 15) {\r\n        return alert('Insira o número de telefone válido');\r\n    }\r\n    if (!description.value.trim()) {\r\n        return alert('Insira a descrição do serviço');\r\n    }\r\n    if (!hour.value) {\r\n        return alert('Selecione um horário')\r\n    }\r\n\r\n    // objeto que armazena dados do agendamento\r\n    const scheduleObj = {\r\n        client: client.value.trim(),\r\n        pet: pet.value.trim(),\r\n        phone: phone.value,\r\n        description: description.value.trim(),\r\n        date: date.value,\r\n        hour: Number(hour.value)\r\n    };\r\n    \r\n    addScheduleElement(scheduleObj);\r\n    \r\n    form.reset()\r\n    date.value = scheduleObj.date;\r\n};\r\n\r\n// função que insere o agendamento na página de acordo com sua data e horário\r\nfunction addScheduleElement(scheduleObj) {\r\n    const dateFilter = document.querySelector('#schedule-date-filter').value;\r\n    const dateSchedule = document.querySelector('#date').value;\r\n    const stop = dateFilter !== dateSchedule ? true : false;\r\n    console.log(dateFilter , 'vs.', dateSchedule)\r\n    if (stop) {\r\n        return;\r\n    };\r\n    const schedule = createScheduleElement(scheduleObj);\r\n    const hour = scheduleObj.hour;\r\n\r\n    if (hour < 13) {\r\n        listScheduleMorning.append(schedule);\r\n    } else if (hour > 18) {\r\n        listScheduleNight.append(schedule);\r\n    } else if (13 < hour < 18) {\r\n        listScheduleAfternoon.append(schedule);\r\n    }\r\n    (0,_verify_empty_msg__WEBPACK_IMPORTED_MODULE_0__.verifyEmptyMsg)();\r\n}\r\n\r\n// função que recebe o objeto com info do agendamento e retorna o elemento HTML\r\nfunction createScheduleElement(scheduleObj) {\r\n    const li = document.createElement('li');\r\n    const article = document.createElement('article');\r\n    const div = document.createElement('div');\r\n    const time = document.createElement('time');\r\n    const pIn = document.createElement('p');\r\n    const strong = document.createElement('strong');\r\n    const span = document.createElement('span');\r\n    const pOut = document.createElement('p');\r\n    const btn = document.createElement('button');\r\n\r\n    time.innerText = scheduleObj.hour + ':00';\r\n    strong.innerText = scheduleObj.pet;\r\n    span.innerText = '/ ' + scheduleObj.client;\r\n    pOut.innerText = scheduleObj.description;\r\n\r\n    pIn.append(strong, span);\r\n    div.append(time, pIn);\r\n    article.append(div, pOut, btn);\r\n    li.append(article);\r\n\r\n    return li;\r\n};\r\n\r\n// tratamento da entrada do input telefone\r\nconst phone = document.querySelector('#telephone');\r\nphone.maxLength = 15;\r\nphone.oninput = (event) => {\r\n    regexPhone(event.target)\r\n}\r\nfunction regexPhone(phoneElement) {\r\n    phoneElement.value = phoneElement.value.replace(/\\D/g, \"\").replace(/^(\\d{2})(\\d)/, \"($1) $2\").replace(/(\\d{5})(\\d)/, \"$1-$2\");\r\n}\n\n//# sourceURL=webpack:///./src/scripts/submit.js?\n}");
 
 /***/ },
 
@@ -76,9 +77,10 @@ eval("{const scheduleDOM = document.querySelector('.schedule');\r\nconst schedul
 /*!*****************************************!*\
   !*** ./src/scripts/verify-empty-msg.js ***!
   \*****************************************/
-() {
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("{function verifyEmptyMsg() {\r\n    const scheduleListsDOM = document.querySelectorAll('.schedule-list');\r\n    scheduleListsDOM.forEach((list) => {\r\n        const emptyMsg = list.previousElementSibling;\r\n        if (list.children.length == 0) {\r\n            list.hidden = true;\r\n            emptyMsg.hidden = false;\r\n        } else {\r\n            list.hidden = false;\r\n            emptyMsg.hidden = true;\r\n        };\r\n    });\r\n};\r\n\r\nverifyEmptyMsg();\n\n//# sourceURL=webpack:///./src/scripts/verify-empty-msg.js?\n}");
+"use strict";
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   verifyEmptyMsg: () => (/* binding */ verifyEmptyMsg)\n/* harmony export */ });\nfunction verifyEmptyMsg() {\r\n    const scheduleListsDOM = document.querySelectorAll('.schedule-list');\r\n    scheduleListsDOM.forEach((list) => {\r\n        const emptyMsg = list.previousElementSibling;\r\n        if (list.children.length == 0) {\r\n            list.hidden = true;\r\n            emptyMsg.hidden = false;\r\n        } else {\r\n            list.hidden = false;\r\n            emptyMsg.hidden = true;\r\n        };\r\n    });\r\n};\n\n//# sourceURL=webpack:///./src/scripts/verify-empty-msg.js?\n}");
 
 /***/ }
 
