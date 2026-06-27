@@ -31,7 +31,7 @@
             </div>
             <div class="schedule-filter">
                 <label for="schedule-date" hidden></label>
-                <input type="date" name="schedule-date" id="schedule-date" class="input date" value="2026-06-25">
+                <input type="date" name="schedule-date" id="schedule-date-filter" class="input date" value="2026-06-25">
             </div>
         </header>
 
@@ -217,14 +217,33 @@
                         <label for="hour">Horário</label>
                         <div class="input-icon hour">
                             <select name="hour" id="hour" class="input">
-                                <option value="12" disabled>12:00</option>
-                                <option value="13">13:00</option>
-                                <option value="14">14:00</option>
+                                <option selected disabled>Selecione</option>
+                                <optgroup label="Manhã">
+                                    <option value="7">07:00</option>
+                                    <option value="8">08:00</option>
+                                    <option value="9">09:00</option>
+                                    <option value="1">10:00</option>
+                                    <option value="11">11:00</option>
+                                </optgroup>
+                                <optgroup label="Tarde">
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                </optgroup>
+                                <optgroup label="Noite">
+                                    <option value="18">18:00</option>
+                                    <option value="19">19:00</option>
+                                    <option value="20">20:00</option>
+                                    <option value="21">21:00</option>
+                                </optgroup>
                             </select>
                         </div>
                     </div>
                 </div>
 
+                <!-- =============== BOTÃO DE ENVIO =============== -->
                 <input type="submit" value="AGENDAR" class="button">
 
             </form>

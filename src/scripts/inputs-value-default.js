@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 
 const scheduleDateFilter = document.querySelector('#schedule-date-filter');
-const scheduleDate = document.querySelector('#date');
+export const scheduleDate = document.querySelector('#date');
 
 const dataDayjsNow = dayjs();
-const dataNow = dataDayjsNow.format('YYYY-MM-DD');
+export const dataNow = dataDayjsNow.format('YYYY-MM-DD');
 const hourNow = dataDayjsNow.format('H');
 
 scheduleDateFilter.value = dataNow;

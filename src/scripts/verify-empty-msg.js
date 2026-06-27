@@ -1,4 +1,4 @@
-function verifyEmptyMsg() {
+export function verifyEmptyMsg() {
     const scheduleListsDOM = document.querySelectorAll('.schedule-list');
     scheduleListsDOM.forEach((list) => {
         const emptyMsg = list.previousElementSibling;
@@ -11,5 +11,3 @@ function verifyEmptyMsg() {
         };
     });
 };
-
-verifyEmptyMsg();

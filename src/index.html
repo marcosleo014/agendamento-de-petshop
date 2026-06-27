@@ -43,7 +43,7 @@
                 <p>09h-12h</p>
             </header>
             <p class="empty-msg" hidden>Não há agendamentos</p>
-            <ul class="schedule-list morgning">
+            <ul class="schedule-list morning">
                 <li class="schedule-item">
                     <article>
                         <div>
@@ -82,6 +82,8 @@
             </header>
             <p class="empty-msg" hidden>Não há agendamentos</p>
             <ul class="schedule-list afternoon">
+
+
                 <li class="schedule-item">
                     <article>
                         <div>
@@ -95,6 +97,8 @@
                         <button></button>
                     </article>
                 </li>
+
+
                 <li class="schedule-item">
                     <article>
                         <div>
@@ -178,7 +182,7 @@
                 <div class="input-item">
                     <label for="name-client">Nome do tutor</label>
                     <div class="input-icon name-client">
-                        <input type="text" name="name-client" id="name-client" placeholder="Marcos Leonan" class="input name-client">
+                        <input type="text" name="name-client" id="name-client" placeholder="Marcos Leonan" class="input name-client" autocomplete="off">
                     </div>
                 </div>
 
@@ -186,7 +190,7 @@
                 <div class="input-item">
                     <label for="name-pet">Nome do pet</label>
                     <div class="input-icon name-pet">
-                        <input type="text" name="name-pet" id="name-pet" class="input" placeholder="Lessie">
+                        <input type="text" name="name-pet" id="name-pet" class="input" placeholder="Lessie" autocomplete="off">
                     </div>
                 </div>
 
@@ -194,10 +198,10 @@
                 <div class="input-item">
                     <label for="telephone">Telefone</label>
                     <div class="input-icon telephone">
-                        <input type="text" name="telephone" id="telephone" class="input" placeholder="(86) 99538-6030">
+                        <input type="text" name="telephone" id="telephone" class="input" placeholder="(86) 99538-6030" autocomplete="off">
                     </div>
                 </div>
-                <!-- =============== AGENDAMENTOS DA MANHÃ =============== -->
+                <!-- =============== DESCRIÇÃO DO SERVIÇO =============== -->
                 <div class="input-item">
                     <label for="service-description">Descrição do serviço</label>
                     <div>
@@ -217,7 +221,7 @@
                         <label for="hour">Horário</label>
                         <div class="input-icon hour">
                             <select name="hour" id="hour" class="input">
-                                <option selected disabled>Selecione</option>
+                                <option selected disabled value="">Selecione</option>
                                 <optgroup label="Manhã">
                                     <option value="7">07:00</option>
                                     <option value="8">08:00</option>
