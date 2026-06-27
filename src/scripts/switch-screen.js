@@ -12,7 +12,11 @@ btnOpenScheduleForm.onclick = () => {
     openScheduleForm(true);
 }
 
-function openScheduleForm(bool) {
+scheduleFormContainer.onclick = () => {
+    console.log('clicou pra sair')
+}
+
+export function openScheduleForm(bool) {
     if (bool) {
         scheduleDOM.classList.add('blur');
     } else {

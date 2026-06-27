@@ -1,4 +1,6 @@
-import { verifyEmptyMsg } from "./verify-empty-msg";
+import { verifyEmptyMsg } from "../verify-empty-msg";
+import { openScheduleForm } from '../switch-screen.js';
+import { addEventScheduleCancel } from './delete.js';
 
 const form = document.querySelector('.schedule-form');
 const listScheduleMorning = document.querySelector('.morning')
@@ -37,6 +39,7 @@ form.onsubmit = (event) => {
 
     // objeto que armazena dados do agendamento
     const scheduleObj = {
+        id: Date.now(),
         client: client.value.trim(),
         pet: pet.value.trim(),
         phone: phone.value,
@@ -46,7 +49,9 @@ form.onsubmit = (event) => {
     };
     
     addScheduleElement(scheduleObj);
-    
+    openScheduleForm(false);
+    addEventScheduleCancel();
+
     form.reset()
     date.value = scheduleObj.date;
 };
@@ -85,10 +90,13 @@ function createScheduleElement(scheduleObj) {
     const pOut = document.createElement('p');
     const btn = document.createElement('button');
 
-    time.innerText = scheduleObj.hour + ':00';
+    const hourFormat = scheduleObj.hour.toString().padStart(2, '0') + ':00';
+    time.innerText = hourFormat;
     strong.innerText = scheduleObj.pet;
     span.innerText = '/ ' + scheduleObj.client;
     pOut.innerText = scheduleObj.description;
+    btn.dataset.id = scheduleObj.id;
+    btn.classList.add('schedule-cancel');
 
     pIn.append(strong, span);
     div.append(time, pIn);
