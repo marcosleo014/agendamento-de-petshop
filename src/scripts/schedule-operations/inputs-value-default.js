@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-const scheduleDateFilter = document.querySelector('#schedule-date-filter');
+export const scheduleDateFilter = document.querySelector('#schedule-date-filter');
 const scheduleDate = document.querySelector('#date');
 
 const dataDayjsNow = dayjs();
@@ -14,7 +14,7 @@ scheduleDate.min = dataNow;
 
 scheduleDate.onchange = () => verifyHourOption();
 
-function verifyHourOption() {
+export function verifyHourOption() {
     const scheduleDate = document.querySelector('#date');
     const scheduleListHours = document.querySelectorAll('#hour option');
     if (scheduleDate.value === dataNow) {
@@ -32,4 +32,12 @@ function verifyHourOption() {
     }
 }
 
-verifyHourOption();
+// tratamento da entrada do input telefone
+const phone = document.querySelector('#telephone');
+phone.maxLength = 15;
+phone.oninput = (event) => {
+    regexPhone(event.target)
+}
+function regexPhone(phoneElement) {
+    phoneElement.value = phoneElement.value.replace(/\D/g, "").replace(/^(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d)/, "$1-$2");
+}
