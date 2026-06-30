@@ -2,6 +2,7 @@ import { verifyEmptyMsg } from "../verify-empty-msg";
 import { openScheduleForm } from '../switch-screen.js';
 import { addEventScheduleCancel } from './delete.js';
 import { addScheduleElement } from './create-schedules.js';
+import { schedules } from "./schedules.js";
 
 const form = document.querySelector('.schedule-form');
 
@@ -49,6 +50,9 @@ form.onsubmit = (event) => {
     addScheduleElement(scheduleObj);
     openScheduleForm(false);
     addEventScheduleCancel();
+
+    // Inserir o agendamento no array de agendamentos
+    schedules.push(scheduleObj);
 
     form.reset()
     date.value = scheduleObj.date;

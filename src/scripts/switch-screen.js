@@ -1,3 +1,5 @@
+import { verifyHourOption } from "./schedule-operations/inputs-value-default";
+
 const scheduleDOM = document.querySelector('.schedule');
 const scheduleFormContainer = document.querySelector('.schedule-form-container');
 const backgroundFormContainer = document.querySelector('.background');
@@ -10,10 +12,7 @@ btnCloseScheduleForm.onclick = () => {
 
 btnOpenScheduleForm.onclick = () => {
     openScheduleForm(true);
-}
-
-scheduleFormContainer.onclick = () => {
-    console.log('clicou pra sair')
+    verifyHourOption();
 }
 
 export function openScheduleForm(bool) {
