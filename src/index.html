@@ -42,8 +42,8 @@
                 <h3>Manhã</h3>
                 <p>09h-12h</p>
             </header>
-            <p class="empty-msg" hidden>Não há agendamentos</p>
-            <ul class="schedule-list morning"></ul>
+            <p class="empty-msg">Não há agendamentos</p>
+            <ul class="schedule-list morning" hidden></ul>
         </section>
 
         <!-- =============== AGENDAMENTOS DA TARDE =============== -->
@@ -53,8 +53,8 @@
                 <h3>Tarde</h3>
                 <p>13h-18h</p>
             </header>
-            <p class="empty-msg" hidden>Não há agendamentos</p>
-            <ul class="schedule-list afternoon"></ul>
+            <p class="empty-msg">Não há agendamentos</p>
+            <ul class="schedule-list afternoon" hidden></ul>
         </section>
 
         <!-- =============== AGENDAMENTOS DA NOITE =============== -->
@@ -64,8 +64,8 @@
                 <h3>Noite</h3>
                 <p>19h-21h</p>
             </header>
-            <p class="empty-msg" hidden>Não há agendamentos</p>
-            <ul class="schedule-list night"></ul>
+            <p class="empty-msg">Não há agendamentos</p>
+            <ul class="schedule-list night" hidden></ul>
         </section>
     </main>
     
@@ -170,6 +170,14 @@
 
         </div>
     </div>
+
+    <aside class="toast-notification toast-off" role="status">
+        <img src="./assets/warning.svg" alt="ícone de alerta">
+        <p class="msg-toast">Item removido com sucesso</p>
+        <button class="close-toast">
+            <img src="assets/close-toast.svg" alt="ícone de fechar">
+        </button>
+    </aside>
 
 </body>
 </html>

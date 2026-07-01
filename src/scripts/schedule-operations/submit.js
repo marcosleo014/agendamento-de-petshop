@@ -3,10 +3,13 @@ import { openScheduleForm } from '../switch-screen.js';
 import { addEventScheduleCancel } from './delete.js';
 import { addScheduleElement } from './create-schedules.js';
 import { schedules } from "./schedules.js";
+import { postSchedule } from "../api/add-schedule.js";
+import { toastMsg } from "../toast-notification.js";
+import { dataNow } from './inputs-value-default.js';
 
 const form = document.querySelector('.schedule-form');
 
-form.onsubmit = (event) => {
+form.onsubmit = async (event) => {
     event.preventDefault();
     
     // obtendo os elemento do DOM
@@ -20,25 +23,30 @@ form.onsubmit = (event) => {
     // Tratando os valores dos inputs
     if (!client.value.trim()) {
         client.value = '';
-        return alert('Identifique o tutor do pet');
+        toastMsg('Identifique o tutor do pet');
+        return
     }
     if (!pet.value.trim()) {
         pet.value = '';
-        return alert('Insira o nome do pet');
+        toastMsg('Insira o nome do pet');
+        return
     }
     if (phone.value.length < 15) {
-        return alert('Insira o número de telefone válido');
+        toastMsg('Número de telefone inválido');
+        return
     }
     if (!description.value.trim()) {
-        return alert('Insira a descrição do serviço');
+        toastMsg('Adicione a descrição do serviço');
+        return
     }
     if (!hour.value) {
-        return alert('Selecione um horário')
+        toastMsg('Selecione um horário')
+        return
     }
 
     // objeto que armazena dados do agendamento
     const scheduleObj = {
-        id: Date.now(),
+        id: Date.now().toString(),
         client: client.value.trim(),
         pet: pet.value.trim(),
         phone: phone.value,
@@ -46,14 +54,20 @@ form.onsubmit = (event) => {
         date: date.value,
         hour: Number(hour.value)
     };
-    
-    addScheduleElement(scheduleObj);
-    openScheduleForm(false);
-    addEventScheduleCancel();
 
-    // Inserir o agendamento no array de agendamentos
-    schedules.push(scheduleObj);
+    try {
+        await postSchedule(scheduleObj);
+        
+        addScheduleElement(scheduleObj);
+        openScheduleForm(false);
+        addEventScheduleCancel();
 
-    form.reset()
-    date.value = scheduleObj.date;
+        // reseta o form e define a data para a atual
+        form.reset();
+        date.value = dataNow;
+        // Inserir o agendamento no array de agendamentos
+        schedules.push(scheduleObj);
+    } catch (error) {
+        console.log(error);
+    };
 };

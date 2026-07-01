@@ -1,0 +1,77 @@
+{
+  "schedules": [
+    {
+      "id": "1782848354360",
+      "client": "Marcos Leonan",
+      "pet": "Mueau",
+      "phone": "(86) 99538-6030",
+      "description": "Clonagem",
+      "date": "2026-06-30",
+      "hour": 20
+    },
+    {
+      "id": "1782908166381",
+      "client": "Marcos Leonan",
+      "pet": "Pandinha",
+      "phone": "(86) 99538-6030",
+      "description": "Banho caprichado",
+      "date": "2026-07-02",
+      "hour": 8
+    },
+    {
+      "id": "1782908262477",
+      "client": "Marquinhos",
+      "pet": "Bicho louco",
+      "phone": "(40) 02400-2220",
+      "description": "Sacrifício",
+      "date": "2026-07-01",
+      "hour": 10
+    },
+    {
+      "id": "1782908610073",
+      "client": "Leonan",
+      "pet": "Pandinha",
+      "phone": "(86) 99538-6030",
+      "description": "Castração",
+      "date": "2026-07-01",
+      "hour": 20
+    },
+    {
+      "id": "1782908690513",
+      "client": "Marcos Leonan",
+      "pet": "Lua",
+      "phone": "(86) 99538-6030",
+      "description": "Faz qualquer coisa com essa porra",
+      "date": "2026-07-01",
+      "hour": 18
+    },
+    {
+      "id": "1782909233790",
+      "client": "Leozinho",
+      "pet": "Puta",
+      "phone": "(99) 99999-9999",
+      "description": "Lava o cu",
+      "date": "2026-07-02",
+      "hour": 21
+    },
+    {
+      "id": "1782909502666",
+      "client": "Marquinhos",
+      "pet": "Lessie",
+      "phone": "(86) 99538-6030",
+      "description": "Banho",
+      "date": "2026-07-02",
+      "hour": 17
+    },
+    {
+      "id": "1782909620034",
+      "client": "fasdfad",
+      "pet": "adsfadfadf",
+      "phone": "(33) 33333-3333",
+      "description": "asdfasdsa",
+      "date": "2026-07-17",
+      "hour": 7
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

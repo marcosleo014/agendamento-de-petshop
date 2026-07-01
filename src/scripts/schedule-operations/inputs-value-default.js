@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
-import { schedules } from './schedules.js';
+import { loadSchedules, schedules } from './schedules.js';
 
 export const scheduleDateFilter = document.querySelector('#schedule-date-filter');
-const scheduleDate = document.querySelector('#date');
+export const scheduleDate = document.querySelector('#date');
 
 const dataDayjsNow = dayjs();
-const dataNow = dataDayjsNow.format('YYYY-MM-DD');
+export const dataNow = dataDayjsNow.format('YYYY-MM-DD');
 const hourNow = dataDayjsNow.format('H');
 const scheduleListHours = document.querySelectorAll('#hour option');
 

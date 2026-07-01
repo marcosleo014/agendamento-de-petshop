@@ -1,15 +1,25 @@
-export let schedules = [
-    // {
-    //     id: 2135465465,
-    //     client: 'Marcos Leonan',
-    //     pet: 'Meau',
-    //     phone: '(86) 99538-6030',
-    //     description: 'mata essa porra',
-    //     date: '2026-07-01',
-    //     hour: 19
-    // }
-];
+import { deleteSchedule } from "../api/delete-schedule";
+import { getSchedules } from "../api/get-schedules";
+import { toastMsg } from "../toast-notification";
 
-export function deleteScheduleById(id) {
-    schedules = schedules.filter(scheduleObj => scheduleObj.id != id);
+export let schedules;
+
+export async function loadSchedules() {
+    try {
+        schedules = await getSchedules();
+    } catch (error) {
+        schedules = [];
+        console.log(error);
+        toastMsg('Erro ao obter agendamentos!')
+    }
+};
+
+export async function deleteScheduleById(id) {
+    try {
+        await deleteSchedule(id);
+        schedules = schedules.filter(scheduleObj => scheduleObj.id != id);
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 };
